@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html class="pagetextsize0 pagetextcontrast0 transition-normal" lang="en">
+	<head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript" src="../sites/it-en/files/js_assets/experience/assets/legacy/apm/newrelic-prod.js"></script>
+		<script type="text/javascript">
+			if (newrelic) {
+        newrelic.setCustomAttribute('customPageType', 'drupal8');
+      }
+		</script>
+    <!-- OneTrust Cookies Consent Notice start for lamborghini.com -->
+    <script type="text/javascript" src="https://cdn.cookielaw.org/consent/a694e4a8-d51f-44c4-adf0-838069538060/OtAutoBlock.js" async></script>
+		<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="a694e4a8-d51f-44c4-adf0-838069538060" async></script>
+		<script type="text/javascript">
+			function OptanonWrapper() {
+        handleScroll();
+      }
+
+      // Yeah, this code is shitty, but it's from here: https://community.cookiepro.com/s/article/UUID-534defd9-7ec8-fc0e-78bf-8dce8c6c5593
+      // WARNING: The documentation is wrong! "pcSaveBtn" doesn't have the class "button-theme"
+      // WARNING: The documentation is wrong! The event on "pcSaveBtn" is never called :(
+      function addBannerStatusEventListener(callback) {
+      function getCookie(name) {
+      const value = `; ${
+      document.cookie
+      }`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2)
+      return parts.pop().split(";").shift();
+
+      return null;
+      }
+
+      const bannerAcceptBtn = document.getElementById("onetrust-accept-btn-handler");
+      const bannerCloseBtn = document.getElementsByClassName("onetrust-close-btn-handler banner-close-button")[0];
+      const pcAllowAllBtn = document.getElementById("accept-recommended-btn-handler");
+      const pcSaveBtn = document.getElementsByClassName("save-preference-btn-handler onetrust-close-btn-handler")[0];
+
+      // const OABCcookieName = "OptanonAlertBoxClosed";
+      // const OABCcookie = getCookie(OABCcookieName);
+
+      if (bannerAcceptBtn) {
+        bannerAcceptBtn.addEventListener('click', function () {
+        console.log("Cookie Banner - Allowed all via Banner");
+          callback();
+        });
+      } else {
+        console.error('Cookie Banner - Click listener not set on "bannerAcceptBtn"');
+      }
+
+      if (bannerCloseBtn) {
+        bannerCloseBtn.addEventListener('click', function () {
+        console.log("Cookie Banner - Banner closed");
+          callback();
+        });
+      } else {
+        console.error('Cookie Banner - Click listener not set on "bannerCloseBtn"');
+      }
+
+      if (pcAllowAllBtn) {
+      pcAllowAllBtn.addEventListener('click', function () {
+        console.log("Cookie Banner - Allowed all via Preference Center");
+          callback();
+        });
+      } else {
+        console.error('Cookie Banner - Click listener not set on "pcAllowAllBtn"');
+      }
+
+      if (pcSaveBtn) {
+        pcSaveBtn.addEventListener('click', function () {
+        console.log("Cookie Banner - Set custom settings via Preference Center");
+          callback();
+        });
+      } else {
+        console.error('Cookie Banner - Click listener not set on "pcSaveBtn"');
+      }
+      }
+
+      function handleScroll() {
+        // Do nothing if the banner is already closed
+        if (Optanon.IsAlertBoxClosed()) return;
+
+
+        // Disable scroll
+        document.body.style.overflowY = 'hidden';
+        // document.body.style.position = 'fixed'; // fix iOS
+
+        window.dispatchEvent(new Event('resize'));
+
+        addBannerStatusEventListener(() => {
+          // Always enable scroll on click
+          // const closed = Optanon.IsAlertBoxClosed();
+          // if (!closed) {
+          // console.warn('Cookie Banner - not closed')
+          // return;
+          // }
+
+          // Enable scroll
+          document.body.style.overflowY = 'auto';
+          // document.body.style.position = ''; // fix iOS
+        });
+      }
+		</script>
+    <!-- OneTrust Cookies Consent Notice end for lamborghini.com -->
+    <style>
+			body #onetrust-consent-sdk #onetrust-banner-sdk {
+				background-color: #181818
+			}
+			body #onetrust-consent-sdk #onetrust-accept-btn-handler {
+				border-radius: 0;
+				font-family: Roboto;
+				text-transform: uppercase;
+				font-weight: 300;
+				letter-spacing: 0.2px;
+				background: 0 0;
+				border: solid 1px #fff !important;
+				color: #fff;
+				padding: 12px 10px
+			}
+			body #onetrust-consent-sdk #onetrust-accept-btn-handler:hover {
+				background-color: #fff !important;
+				color: #000 !important
+			}
+			body #onetrust-consent-sdk #onetrust-pc-sdk #accept-recommended-btn-handler {
+				border-radius: 0;
+				font-family: Roboto;
+				text-transform: uppercase;
+				font-weight: 300;
+				letter-spacing: 0.2px;
+				background-color: #202020 !important;
+				border: solid 1px #fff !important;
+				color: #fff !important;
+				padding: 12px 10px
+			}
+			body #onetrust-consent-sdk #onetrust-pc-btn-handler.cookie-setting-link {
+				width: auto !important
+			}
+			body #onetrust-consent-sdk #onetrust-pc-btn-handler.cookie-setting-link,
+			body #onetrust-consent-sdk #onetrust-pc-sdk button.save-preference-btn-handler {
+				background: 0 0;
+				color: #fff;
+				font-family: Roboto;
+				text-decoration: none;
+				min-width: 0;
+				margin-right: 20px;
+				padding: 12px 2px;
+				position: relative;
+				font-weight: 500
+			}
+			body #onetrust-consent-sdk #onetrust-pc-btn-handler.cookie-setting-link {
+				opacity: .5
+			}
+			body #onetrust-consent-sdk #onetrust-pc-sdk button.save-preference-btn-handler {
+				opacity: 1
+			}
+			body #onetrust-pc-btn-handler::before {
+				content: "";
+				width: 100%;
+				height: 1px;
+				background: #fff;
+				position: absolute;
+				bottom: 9px;
+				left: 0
+			}
+			body #onetrust-consent-sdk #onetrust-pc-btn-handler.cookie-setting-link:hover,
+			body #onetrust-consent-sdk #onetrust-pc-sdk button.save-preference-btn-handler:hover {
+				opacity: .7
+			}
+			body #onetrust-consent-sdk #onetrust-policy-text {
+				color: #fff;
+				opacity: .5;
+				margin-bottom: 0;
+				font-weight: 300
+			}
+			body #onetrust-banner-sdk #onetrust-policy {
+				margin: 2em 0 2em 2em
+			}
+			body #onetrust-pc-sdk .ot-cat-grp .ot-always-active {
+				color: #181818
+			}
+			body #onetrust-pc-sdk .ot-tgl input:checked+.ot-switch .ot-switch-nob {
+				background-color: #fff;
+				border: 1px solid #181818
+			}
+			body #onetrust-pc-sdk .ot-tgl input:checked+.ot-switch .ot-switch-nob:before {
+				background-color: #181818;
+				border-color: #181818
+			}
+			body #onetrust-pc-sdk .ot-pc-logo {
+				background-image: url('https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/images/logo.png') !important;
+				background-position: left center;
+				height: 60px
+			}
+			body #onetrust-pc-sdk .ot-pc-header {
+				height: 59px
+			}
+			body #onetrust-pc-sdk #ot-pc-content {
+				top: 80px
+			}
+			@media screen and(max-width:767px) {
+				body #onetrust-banner-sdk #onetrust-button-group {
+					display: flex;
+					flex-direction: column;
+					align-items: center
+				}
+				body #onetrust-banner-sdk #onetrust-button-group button {
+					margin-right: 0 !important
+				}
+			}
+		</style>
+		<script>
+      dataLayer = [{"pageCategory":"virtual_platform","pageSubCategory":"PAGE - VIRTUAL PLATFORM - 3D","pageLanguage":"ru","userCountry":"","memberType":"NoLogged","page404":"false","articleTag":""}]
+	  </script>
+    <!-- Google Tag Manager -->
+    <script>
+			(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KKLP');
+            </script><!-- End Google Tag Manager --><script>
+              (function (i, s, o, b, g, r, p, a, m) {
+        i['aggrObjName'] = r;
+        i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+        },
+        i[r].l = 1 * new Date();
+        i['aggrApp'] = p;
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = (g);
+        m.parentNode.insertBefore(a, m);
+        i[r].aggregatorServerRoot = b;
+      })(window, document, 'script', 'https://rum.lamborghini.com/c1', 'https://www.lamborghini.com/rum/client.js', 'statsCli', 'lamborghiniCom');
+		</script>
+		<title>Lamborghini Huracán STO 2020</title>
+    <link rel="canonical" href="../en-en/3d"/>
+    <meta name="description" content="Discover the new Huracán STO"/>
+    <meta name="robots" content="follow,index"/>
+    <meta property="og:description" content="Discover the new Huracán STO"/>
+    <meta property="og:image" content="https://www.lamborghini.com/sites/it-en/files/2020-11/Unveil_New_Huracan%20STO_3.jpg"/>
+    <meta property="og:site_name" content="Lamborghini"/>
+    <meta property="og:title" content="Lamborghini Huracán STO 2020"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.lamborghini.com/en-en/3d?unveil=vM2I9vY6gD6gQbM7cy9mW8qA9R2L8eX1zKx7zA3bV5yC_1605715200"/>
+    <meta name="twitter:creator" content="@lamborghini"/>
+    <meta name="twitter:description" content="Discover the new Huracán STO"/>
+    <meta name="twitter:image" content="https://www.lamborghini.com/sites/it-en/files/2020-11/Unveil_New_Huracan%20STO_4.jpg"/>
+    <meta name="twitter:site" content="https://www.lamborghini.com/en-en/3d?unveil=vM2I9vY6gD6gQbM7cy9mW8qA9R2L8eX1zKx7zA3bV5yC_1605715200"/>
+    <meta name="twitter:title" content="Lamborghini Huracán STO 2020"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" href="../sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="../sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/android-chrome-192x192.png" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="../sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="../sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/favicon-16x16.png" sizes="16x16"/>
+    <link rel="manifest" href="../sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/manifest.json"/>
+    <link rel="mask-icon" href="https://www.lamborghini.com/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/safari-pinned-tab.svg" color="#000000"/>
+    <link rel="shortcut icon" href="../sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/favicon.ico"/>
+    <meta name="msapplication-TileColor" content="#da532c"/>
+    <meta name="msapplication-TileImage" content="/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/mstile-144x144.png"/>
+    <meta name="msapplication-config" content="/sites/it-en/files/js_assets/experience/assets/legacy/themes/custom/lambo/ico/browserconfig.xml"/>
+    <meta name="theme-color" content="#000000"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+
+    <!-- DRUPAL -->
+    <meta name="MobileOptimized" content="width"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="shortcut icon" href="../sites/it-en/files/js_assets/experience/assets/legacy/favicon.ico" type="image/vnd.microsoft.icon"/>
+		<link rel="alternate" hreflang="it" href="../it-en/3d"/>
+		<link rel="alternate" hreflang="en" href="../en-en/3d"/>
+		<link rel="alternate" hreflang="fr" href="../fr-en/3d"/>
+		<link rel="alternate" hreflang="es" href="../es-en/3d"/>
+		<link rel="alternate" hreflang="de" href="../de-en/3d"/>
+		<link rel="alternate" hreflang="zh-hans" href="../cn-en/3d"/>
+		<link rel="alternate" hreflang="ja" href="../jp-en/3d"/>
+		<link rel="alternate" hreflang="ru" href="3d"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/lazyload/css/lazyload.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/bootstrap/css/bootstrap.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/fontello/css/fontello.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/fontello/css/fontello2.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/smooth-scrolling/css/smooth-scrolling.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/exagon/css/exagon.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/modals/css/modals.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/global/css/styles.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/emissions/css/emissions.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/spinner/css/spinner.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/iframeLoader/css/iframeLoader.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/font-awesome/css/font-awesome.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/hamburger/css/hamburger.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/overlay/css/overlay.css@rcspmn"/>
+		<link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/header/css/header.css@rcspmn"/>
+
+		<!--[if lte IE 8]>
+		<script src="/core/assets/vendor/html5shiv/html5shiv.min.js?v=3.7.3"></script>
+		<![endif]-->
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/modernizr/js/modernizr.min.js@v=3.6.0"></script>
+		<script src="https://mediawls-meride-tv.akamaized.net/scripts/latest/embed.js"></script>
+		<script src="../sites/it-en/files/js_assets/meride.js@rcspmn"></script>
+		<!-- DRUPAL - END -->
+		<style>
+			html.ng-scope #toolbar-administration,
+			html.layout-desktop #toolbar-administration,
+			html.layout-mobile #toolbar-administration {
+				display: none;
+			}
+
+			html.ng-scope a[href].btn {
+				padding: 1rem 2rem;
+			}
+
+			html.ng-scope .body > .emissions > p {
+				font-size: 16px !important;
+				line-height: 18px;
+			}
+			html.ng-scope .body > .emissions {
+				padding: 0.5rem;
+			}
+
+			#driving-dynamics .otherComponents {
+				display: none;
+			}
+
+			header {
+				width: 100%
+			}
+
+			@media(max-width: 1024.98px) {
+				footer .content {
+					padding-bottom: 11rem;
+				}
+			}
+
+
+			@media(max-width: 600px) {
+				.banner > div .link h2 {
+					font-size: 3.5rem;
+				}
+			}
+
+
+			@media(max-width: 1365.98px) {
+				header nav > ul > li a span {
+					font-size: 1.25rem;
+				}
+			}
+
+
+			footer a {
+				white-space: nowrap;
+			}
+
+			#model-chooser .desktop .controls {
+				text-align: center;
+			}
+
+			@media(max-width: 669px) {
+				#locator.holder-locator .search-bar.mobile {
+					width: calc(100% - 20px);
+				}
+				#locator.holder-locator .search-bar.mobile #suggestion-mobile {
+					list-style: none;
+				}
+
+				#locator.holder-locator .sidebar {
+					margin-top: 0;
+					height: auto;
+				}
+				#locator.holder-locator .map {
+					top: auto !important;
+					height: 220px !important;
+				}
+			}
+
+			header #overlay-burger-mobile .content {
+				height: calc(100% - 65px) !important;
+			}
+
+			#families-gallery .families-gallery-texts .button-wrapper:not(.explore-models):not(.explore-model) {
+				display: none;
+			}
+
+			#news.list #load-more-news.visible {
+				margin: 0 auto 6rem;
+				display: block;
+			}
+
+
+			.block1 > div .column h6.taxi,
+			.block1 > div .column h6.air,
+			.block1 > div .column h6.bus {
+				padding-bottom: 3rem;
+			}
+
+
+			.page-node-type-careers .block4 > div > div span {
+				color: black;
+			}
+
+			#news .image:not(.img-loading) {
+				opacity: 1;
+			}
+
+			#news .model-gallery .meride-video-container .otherComponents {
+				display: block !important;
+			}
+			#news #breadcrumbs {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.page-node-type-museum #content .carousel-top .boxcontent p {
+				font-family: arial;
+			}
+			@media(min-width: 1921px) {
+				.car-pre-configurator .desktop .controls {
+					min-height: 900px;
+				}
+			}
+			header #overlay-burger .right a svg,
+			footer .social a svg {
+				position: relative;
+			}
+
+			.page-node-type-masterpiece .carousel-top > a.full:not([href]) {
+				display: none;
+			}
+
+			.page-node-type-dealer #block1 .actions .btn span {
+				color: white;
+			}
+
+			@media all and(-ms-high-contrast: none),
+			(-ms-high-contrast: active) {
+				section.augmented-reality > .container-fluid > .row > .align-items-center > .row.no-gutters.align-items-center {
+					width: 100%;
+				}
+
+				section.motor-sound-images > .desktop > .texts {
+					margin-bottom: 3rem;
+				}
+				section.motor-sound-images > .desktop > .texts .col-5 {
+					display: none;
+				}
+				section.motor-sound-images > .desktop > .texts .col-6 {
+					flex: 0 0 100%;
+					max-width: 100%;
+				}
+
+				section.families-gallery.desktop .family-wrapper .accordion-content {
+					margin-top: 2rem;
+				}
+			}
+
+			html[ng-app] .page-node-type-company .block1 .directions .field {
+				width: 40rem;
+			}
+
+			.club-form section.basics .logo {
+				min-height: 18rem;
+			}
+
+			[id="10864"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="10865"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="10110"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="10407"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="10440"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="9739"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="9740"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="10880"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="10466"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="9919"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a,
+			[id="10207"] .right.flex-fill > .d-flex.flex-column > div:first-of-type a {
+				min-height: 6rem;
+				opacity: 0 !important;
+			}
+
+			section.car-pre-configurator .configurator-link {
+				display: none !important;
+			}
+
+			div.dealer-page section.block-img-sx-text-dx .texts-wrapper .links {
+				visibility: hidden;
+			}
+
+			.icon-button svg {
+				min-width: 5rem;
+				min-height: 5rem;
+			}
+
+			@media(max-width: 1024.98px) {
+				.circuit-details .table .logo img {
+					height: auto;
+					max-width: 40rem;
+				}
+			}
+			@media(max-width: 768px) {
+				.circuit-details .table .logo img {
+					height: auto;
+					max-width: 23rem;
+				}
+			}
+
+
+			.save-the-date-dropdown .dropdown-menu {
+				background-color: rgba(0, 0, 0, .9);
+			}
+			.circuits .save-the-date-dropdown .dropdown-menu {
+				background-color: rgba(255, 255, 255, 1) !important;
+			}
+
+
+			@media(max-width: 600px) {
+				.homepage .hero-banner {
+					overflow: visible !important;
+				}
+			}
+
+
+			section.hero-banner a.anchor-wrapper:not([href]) {
+				opacity: 0;
+			}
+
+			@media only screen and(max-width: 669px) {
+				.page-node-type-careers #block0 {
+					height: auto !important;
+				}
+				.page-node-type-careers .block0 .col .boxcontent {
+					margin-bottom: 6rem;
+				}
+			}
+			.header-banner > button.header-banner-trigger.dsk {
+				visibility: hidden;
+				transition: bottom 0.5s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
+			}
+			.header-banner.on > button.header-banner-trigger.dsk {
+				visibility: visible;
+			}
+			header > .hb-trigger button.header-banner-trigger.dsk .banner .ie-text {
+				display: none
+			}
+			.ie header > .hb-trigger button.header-banner-trigger.dsk {
+				max-width: 182px
+			}
+			.ie header > .hb-trigger button.header-banner-trigger > svg.decoration {
+				position: absolute !important;
+				max-width: 23px
+			}
+			.ie header > .hb-trigger button.header-banner-trigger > svg.decoration.big {
+				max-width: 32px
+			}
+			.edge header > .hb-trigger button.header-banner-trigger.dsk .banner .ie-text,
+			.ie header > .hb-trigger button.header-banner-trigger.dsk .banner .ie-text {
+				display: block
+			}
+			.edge header > .hb-trigger button.header-banner-trigger.dsk .banner .default-text,
+			.ie header > .hb-trigger button.header-banner-trigger.dsk .banner .default-text {
+				display: none
+			}
+			html[ng-app] header .burger-menu .content .footer .socials a.tiktok.fa > svg {
+				position: relative;
+			}
+
+			.emissions-banner {
+				line-height: 2rem;
+			}
+		</style>
+		<script>
+			!function (a) {
+      var e = "https://s.go-mpulse.net/boomerang/",
+      t = "addEventListener";
+      if ("False" == "True")
+      a.BOOMR_config = a.BOOMR_config || {},
+      a.BOOMR_config.PageParams = a.BOOMR_config.PageParams || {},
+      a.BOOMR_config.PageParams.pci = !0,
+      e = "https://s2.go-mpulse.net/boomerang/";
+
+      if (window.BOOMR_API_key = "BLNKS-LFKQX-FP5ZV-DX2VK-AJ3AT", function () {
+      function n(e) {
+      a.BOOMR_onload = e && e.timeStamp || (new Date).getTime()
+      }
+      if (! a.BOOMR || ! a.BOOMR.version && ! a.BOOMR.snippetExecuted) {
+      a.BOOMR = a.BOOMR || {},
+      a.BOOMR.snippetExecuted = !0;
+      var i,
+      _,
+      o,
+      r = document.createElement("iframe");
+      if (a[t])
+      a[t]("load", n, !1);
+      else if (a.attachEvent)
+      a.attachEvent("onload", n);
+
+      r.src = "javascript:void(0)",
+      r.title = "",
+      r.role = "presentation",
+      (r.frameElement || r).style.cssText = "width:0;height:0;border:0;display:none;",
+      o = document.getElementsByTagName("script")[0],
+      o.parentNode.insertBefore(r, o);
+      try {
+      _ = r.contentWindow.document
+      } catch (O) {
+      i = document.domain,
+      r.src = "javascript:var d=document.open();d.domain='" + i + "';void(0);",
+      _ = r.contentWindow.document
+      }
+      _.open()._l = function () {
+      var a = this.createElement("script");
+      if (i)
+      this.domain = i;
+
+      a.id = "boomr-if-as",
+      a.src = e + "BLNKS-LFKQX-FP5ZV-DX2VK-AJ3AT",
+      BOOMR_lstart = (new Date).getTime(),
+      this.body.appendChild(a)
+      },
+      _.write("<bo" + 'dy onload="document._l();">'),
+      _.close()
+      }
+      }(), "".length > 0)
+      if (a && "performance" in a && a.performance && "function" == typeof a.performance.setResourceTimingBufferSize)
+      a.performance.setResourceTimingBufferSize();
+
+
+      !function () {
+      if (BOOMR = a.BOOMR || {}, BOOMR.plugins = BOOMR.plugins || {}, !BOOMR.plugins.AK) {
+      var e = "" == "true" ? 1 : 0,
+      t = "",
+      n = "luwude3ikoipoy5akplq-f-d4c6c2697-clientnsv4-s.akamaihd.net",
+      i = "false" == "true" ? 2 : 1,
+      _ = {
+      "ak.v": "34",
+      "ak.cp": "648985",
+      "ak.ai": parseInt("422642", 10),
+      "ak.ol": "0",
+      "ak.cr": 3,
+      "ak.ipv": 4,
+      "ak.proto": "h2",
+      "ak.rid": "4a69fc3",
+      "ak.r": 24192,
+      "ak.a2": e,
+      "ak.m": "x",
+      "ak.n": "essl",
+      "ak.bpcip": "93.45.65.0",
+      "ak.cport": 4241,
+      "ak.gh": "2.18.254.183",
+      "ak.quicv": "",
+      "ak.tlsv": "tls1.3",
+      "ak.0rtt": "",
+      "ak.csrc": "-",
+      "ak.acc": "",
+      "ak.t": "1671451607",
+      "ak.ak": "hOBiQwZUYzCg5VSAfCLimQ==O+RAFrKXZMsxix4MfMMU2bFmsI3PzwVmZiJtw12zeh9ut8OHr1MiUUZsGP0EryCnzAUxcKPaxfPB5OKKRM5+UezLiaGXdbko7WRKPPjij0ZX0wf9PMsJt/K/rCZEG+SM6MFhC3hM7Kug/FmK/lSvxqI0WI48G15XG/tpWmS9sD9FoIcv3j5y/2GGu3LecJ+d2rOezVlGZ2cDgTN+YrpU/ZEiXKFQ4/8uUw2SDfRYZTDLFF3MClnf28c+wChuEaaL+sU9or46xEaSQVNCUIjCAhWeFbj5wsEWb8nDZeyJ9RLFxCnzEAvFNGxts2cny7vmQGfdMnvj0vX5gaQGiA+4mr5Ivnj4ytLn2GgAVYBw4Vmmbrhb8ejzDFbExU8Z366qA99GvPNYlUj9XHGJ3vPX0gN32ZKb9jSBFYobYAQuR+g=",
+      "ak.pv": "153",
+      "ak.dpoabenc": "",
+      "ak.tf": i
+      };
+      if ("" !== t)
+      _["ak.ruds"] = t;
+
+      var o = {
+      i: !1,
+      av: function (e) {
+      var t = "http.initiator";
+      if (e && (! e[t] || "spa_hard" === e[t]))
+      _["ak.feo"] = void 0 !== a.aFeoApplied ? 1 : 0,
+      BOOMR.addVar(_)
+
+      },
+      rv: function () {
+      var a = [
+      "ak.bpcip",
+      "ak.cport",
+      "ak.cr",
+      "ak.csrc",
+      "ak.gh",
+      "ak.ipv",
+      "ak.m",
+      "ak.n",
+      "ak.ol",
+      "ak.proto",
+      "ak.quicv",
+      "ak.tlsv",
+      "ak.0rtt",
+      "ak.r",
+      "ak.acc",
+      "ak.t",
+      "ak.tf"
+      ];
+      BOOMR.removeVar(a)
+      }
+      };
+      BOOMR.plugins.AK = {
+      akVars: _,
+      akDNSPreFetchDomain: n,
+      init: function () {
+      if (! o.i) {
+      var a = BOOMR.subscribe;
+      a("before_beacon", o.av, null, null),
+      a("onbeacon", o.rv, null, null),
+      o.i = !0
+      }
+      return this
+      },
+      is_complete: function () {
+      return !0
+      }
+      }
+      }
+      }()
+      }(window);
+		</script>
+	
+                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="BLNKS-LFKQX-FP5ZV-DX2VK-AJ3AT",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"BLNKS-LFKQX-FP5ZV-DX2VK-AJ3AT",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="zkzvwolipblxgzmufnxa-f-36fc5fb51-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"36","ak.cp":"648985","ak.ai":parseInt("422642",10),"ak.ol":"0","ak.cr":9,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"2b9745db","ak.r":40323,"ak.a2":e,"ak.m":"x","ak.n":"essl","ak.bpcip":"202.179.91.0","ak.cport":53521,"ak.gh":"23.55.246.246","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1704209262","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==DNVvfeX0roD6X/5EgvO2R9+OaamOAL0fslphW3bw1svRXBZUcLD4Fad/irtzztn+Gjq/3L8aQAKB+79+e8pUsZi4aQhjFl6xkPkc+8gWbl3oBC+sxfTO6iA0rbyyT8C740OZp4wupCsmNoUj/e5xyuC6ouRdG93LpOSxczo4vYf8wJKIyqWycxFWJuQ07bs1S34E0I/8/nh2wCsCXPQyZEUHvO5S2oP+V6ZxU8izuOnoCLlvXOnKTIf1wSKFZETN4vOhHPtDV1aIVc2BdZ/5/iNXbTGLRert+mgbLErMnszV1DpsbRne6kwe2dS3XHRybn/JHzn7Ye9su/0sjiZJoa9LQbWkN3fo+8lTrO0t9G4DiwfumjZJhQgINr1pA3JiRrJvzEiHvtHIH1FAH/Uj/lyxT5jk4atiNe9d+fHEX6w=","ak.pv":"156","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+	<body data-lazy="image">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+		  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKLP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+    <!-- End Google Tag Manager (noscript) --><!-- 8.9.10 -->
+    <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+			<div id="scroll-container" class="virtual-platform">
+				<div id="page"><link rel="stylesheet" media="all" href="../sites/it-en/files/js_assets/experience/experience_Fv01sF4z816X.css@tk=337eb0b86ea7a5836b0a2e6fafea10c6"><div id="root"></div>
+					<section class="iframe-wrapper hidden sto-3d" id="iframe">
+						<div class="wrapper">
+							<div class="linear-spinner iframe-spinner"></div>
+							<div class="close-element">
+								<h2>Contact us</h2>
+								<button class="exagon" type="button">
+									<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 50.464 58.271">
+										<g stroke-width="1" transform="translate(-1624 -187.923)"><path class="background" d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z" transform="translate(1623.5 187.345)"/><g class="foreground" transform="translate(.5 .5)"><path d="M14 14L0 0" transform="translate(1641.5 209.5)"/><path d="M0 14L14 0" transform="translate(1641.5 209.5)"/></g>
+										</g>
+									</svg>
+								</button>
+								<button class="btn-close">
+									<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15 15"><path d="M0 0 L0 0 15 15 M15 0 L15 0 0 15"/></svg>
+								</button>
+							</div>
+							<div class="form payload">
+								<iframe data-src="/en-en/resource/form/virtual_platform/iframe" frameborder="0"></iframe>
+							</div>
+						</div>
+					</section>
+					<style type="text/css">
+						.dialog-off-canvas-main-canvas > .emissions-banner {
+							padding: 5px !important;
+							font-size: 12px !important;
+						}
+					</style>
+					<script type="text/javascript">
+            window.__AQ_DATA = {"currentLanguage":"ru","secondsToUnveil":-65816348,"icsFilename":"/sites/it-en/files/js_assets","refreshQueryString":"unveil=vM2I9vY6gD6gQbM7cy9mW8qA9R2L8eX1zKx7zA3bV5yC_1605715200","hideForm":false,"timeStampUnveiling":"1605715200","labels":{"startUnveil":"Начните свой опыт","skipIntro":"Пропустить вступление","loading":"Опыт загрузки","reviewUnveil":"Вновь переживите это событие","ar":"Опыт AR","share":"Поделиться","contactUs":"Свяжитесь с ними","discoverMore":"Меню","corporateName":"Страница модели","corporateUrl":"https://www.lamborghini.com/ru-en/%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8/huracan/huracan-sto","shareExperience":"Поделиться опытом","facebook":"Facebook","twitter":"Twitter","copyLink":"Копировать ссылку","scanQrCode":"Сканировать QR-код","viewStoAr":"Просмотр Huracán STO<br />в дополненной реальности","lightweightApproach":"Технология облегченного веса","breakingFeeling":"Ощущение торможения","aerodynamic":"Аэродинамика","drivingDynamics":"Динамика вождения","connectedTelemetry":"Подключенная Телеметрия","doorDx":"Правая дверь","doorSx":"Левая дверь","daytona":"Дайтона","pilots":"Drivers","sannaMapelli":"Squadra Corse highlights","csrRacing":"Гонки CSR","fortnite":"Фортнайт","carSketches":"Эскизы автомобилей","engineSound":"Звук двигателя","daytonaWin1":"Трофеи Daytona 2018","daytonaWin2":"Трофеи Daytona 2019","daytonaWin3":"Трофеи Daytona 2020","lang":"Языки и субтитры","languages":"Языки","info":"Информация","infoContent":"<b>©2020 Automobili Lamborghini S.p.A</b><br>Компания с единственным акционером группы Audi<br>Все права защищены Счет НДС 00591801204","subtitles":"Субтитры","fortniteLinkLabel":"Игра Фортнайт","csrRacingLinkLabel":"Перейти к игре CSR","escOn":"(ABS, TCS, TB)","escOff":"(ABS, TCS, TB)","escDisabled":"(Отключенный режим)","abs":"(Антиблокировочная тормозная система)","tcs":"(Противобуксовочная система)","tv":"(Векторизация крутящего момента тормозом)","rws":"(Управление задними колесами)","tpf":"(Ощущение педали газа)","gr":"(Реакция коробки передач)","damping":"Демпфирование","dampingSto":"(эффект дорожного копирования с уменьшенной фильтрацией жесткости)","dampingPioggia":"(Улучшенный контроль перераспределения нагрузки)","dampingTrofeo":"(улучшенный контроль кузова для максимизации эффективности под полом)","useHeadphone":"Используйте наушники<br>для лучшего звука","chapter":"Разделы","chapterOne":"Введение","chapterTwo":"Видеоролик Huracán STO","chapterThree":"Техническая презентация","cofango":"Кофанго","disable":"Отключить","rotateYourDevice":"Поверните свое устройство","play":"Воспроизвести","arSocialWarning":"Для правильной работы AR требуется Chrome или Safari","slowNetworkError":"Ops!<br/>The network connection is slow.","tryReload":"Try to reload","banner":"Не все контенты доступны на всех рынках. Пожалуйста, обратитесь к вашему местному дилеру Lamborghini для получения подробной информации и проверки доступности."},"path":{"assetsServerPath":"/data/www/lamborghini/htdocs/sites/it-en/files/js_assets/experience","files":{"2":"_old_meridecc.js","3":"assets","4":"experience_Fv01sF4z816X.css","5":"experience_Fv01sF4z816X.js","6":"index.html","7":"meridecc.js"}},"cc":"ru"}
+					</script>
+					<script type="text/javascript" src="../sites/it-en/files/js_assets/experience/_old_meridecc.js@tk=258e5e092c89122fd04750f0ac257f1d"></script>
+					<script type="text/javascript" src="../sites/it-en/files/js_assets/experience/experience_Fv01sF4z816X.js@tk=e0cd20833ca02e5f3069b261bbd3700b"></script>
+					<script type="text/javascript" src="../sites/it-en/files/js_assets/experience/meridecc.js@tk=64cd7e0102871d08e8f8bbd9fe96a021"></script>
+				</div>
+			</div>
+			<div class="emissions-banner fixed-bottom text-center">
+        Показатели расхода топлива и эмиссии Huracán STO*; Расход топлива в комбинированном цикле: 13.9 l/100km  (WLTP); Эмиссия CO₂ в комбинированном цикле: 331 g/km  (WLTP)
+			</div>
+			<script>
+				var Languages = Languages || {};
+        Languages = {
+        'current_lang': 'en',
+        'all': [
+        {
+        "code": "it",
+        "title": "italian",
+        "url_code": "it-en",
+        "href": "https:\/\/www.lamborghini.com\/it-en\/3d",
+        "active": false
+        },
+        {
+        "code": "en",
+        "title": "english",
+        "url_code": "en-en",
+        "href": "https:\/\/www.lamborghini.com\/en-en\/3d",
+        "active": true
+        },
+        {
+        "code": "zh-hans",
+        "title": "chinese",
+        "url_code": "cn-en",
+        "href": "https:\/\/www.lamborghini.com\/cn-en\/3d",
+        "active": false
+        },
+        {
+        "code": "ja",
+        "title": "japanese",
+        "url_code": "jp-en",
+        "href": "https:\/\/www.lamborghini.com\/jp-en\/3d",
+        "active": false
+        }, {
+        "code": "de",
+        "title": "german",
+        "url_code": "de-en",
+        "href": "https:\/\/www.lamborghini.com\/de-en\/3d",
+        "active": false
+        }, {
+        "code": "es",
+        "title": "spanish",
+        "url_code": "es-en",
+        "href": "https:\/\/www.lamborghini.com\/es-en\/3d",
+        "active": false
+        }, {
+        "code": "fr",
+        "title": "french",
+        "url_code": "fr-en",
+        "href": "https:\/\/www.lamborghini.com\/fr-en\/3d",
+        "active": false
+        }, {
+        "code": "ru",
+        "title": "russian",
+        "url_code": "ru-en",
+        "href": "https:\/\/www.lamborghini.com\/ru-en\/3d",
+        "active": false
+        }
+        ]
+        };
+			</script>
+		</div>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/mobile-detect/js/mobile-detect.min.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/jquery/js/jquery.min.js@v=3.4.1"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/jquery/js/jquery.inViewport.min.js@v=3.4.1"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/lazyload/js/jquery.inview.min.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/lazyload/js/lazyload.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/google-tag-manager/js/google-tag-manager.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/global/js/utils.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/bs_breakpoints/js/bs-breakpoints.min.js@v=2.6.3"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/bootstrap/js/popper.min.js@v=4.3.1"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/bootstrap/js/util.js@v=4.3.1"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/bootstrap/js/modal.js@v=4.3.1"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/bootstrap/js/collapse.js@v=4.3.1"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/bootstrap/js/dropdown.js@v=4.3.1"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/smooth-scrolling/js/smooth-scrolling.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/smooth-scrolling/js/starter.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/modals/js/search.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/modals/js/settings.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/modals/js/default-modal.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/global/js/main.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/iframeLoader/js/iframeLoader.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/iframe/js/iframe.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/hamburger/js/hamburger.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/overlay/js/overlay.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/overlay/js/search.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/overlay/js/settings.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/header/js/menu.js@rcspmn"></script>
+		<script src="../sites/it-en/files/js_assets/experience/assets/legacy/libraries/header/js/mobile.js@rcspmn"></script>
+		<script>
+			;
+      (function () {
+      if (typeof angular == 'undefined')
+      return;
+
+      var caPrivacy = document.querySelectorAll('.privacybox > p.ca-privacy');
+      var $caPrivacy = angular.element(caPrivacy);
+      if ($caPrivacy.length > 0) {
+      for (var i = 0; i < $caPrivacy.length; ++ i) {
+      var parent = $caPrivacy[i].parentNode.parentNode;
+      // if($caPrivacy[i].parentNode.classList.contains('privacybox')){
+      console.log(parent);
+      parent.insertBefore($caPrivacy[i].cloneNode(true), $caPrivacy[i].parentNode);
+      $caPrivacy[i].remove();
+      // }
+      }
+      }
+      }());
+          </script>
+          <style>
+            section.privacy p.ca-privacy {
+              padding-left: 3rem;
+              font-size: 1.2rem;
+              line-height: 2.7rem;
+              margin-bottom: 2.5rem;
+            }
+            section.privacy span.pri > .ca-privacy {
+              display: none;
+            }
+          </style>
+          <script>
+            ;
+      (function ($) {
+      $(document).ready(function () {
+      App.triggerEvent('::appReady')
+      });
+      }(jQuery));
+		</script>
+	</body>
+</html>
